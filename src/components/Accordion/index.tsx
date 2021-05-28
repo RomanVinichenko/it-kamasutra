@@ -8,7 +8,7 @@ interface IAccordionProps {
     title: string;
 }
 
-const Index: FC<IAccordionProps> = ({ collapsed, title }) => (
+const Accordion: FC<IAccordionProps> = ({ collapsed, title }) => (
     <>
         {collapsed ? (
             <>
@@ -20,4 +20,4 @@ const Index: FC<IAccordionProps> = ({ collapsed, title }) => (
         )}
     </>
 );
-export default Index;
+export default Accordion;

@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import Index from './components/Accordion';
+
 import { MyTitle as Mt } from './components/MyTitle/MyTitle';
 import { Rating, Star } from './components/Star/Rating';
+import Accordion from './components/Accordion';
 
 function App() {
     console.log('app rendered');
     return (
         <div>
-            <Index collapsed={true} title={'hello world'} />
-            <Index collapsed={false} title={'hello world'} />
+            <Accordion collapsed={true} title={'hello world'} />
+            <Accordion collapsed={false} title={'hello world'} />
         </div>
     );
 }
