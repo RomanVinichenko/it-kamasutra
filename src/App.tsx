@@ -1,36 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { Todolist } from './components/Todolist/Todolist';
 
-import { MyTitle as Mt } from './components/MyTitle/MyTitle';
-import { Rating, Star } from './components/Star/Rating';
-import Accordion from './components/Accordion';
 
 function App() {
-    console.log('app rendered');
+
+    // let tasks1 = [
+    //     { id: 1, title: "HTML&CSS", isDone: true },
+    //     { id: 2, title: "JS", isDone: true },
+    //     { id: 3, title: "ReactJS", isDone: false },
+    //     { id: 4, title: "HTML&CSS", isDone: true },
+    //     { id: 5, title: "JS", isDone: true },
+    //     { id: 6, title: "ReactJS", isDone: false },
+    // ]
+
+    let [tasks1,setTasks1]=useState ([
+        { id: 1, title: "HTML&CSS", isDone: true },
+        { id: 2, title: "JS", isDone: true },
+        { id: 3, title: "ReactJS", isDone: false },
+        { id: 4, title: "HTML&CSS", isDone: true },
+        { id: 5, title: "JS", isDone: true },
+        { id: 6, title: "ReactJS", isDone: false },
+    ])
+
+
+    const removeTasks=(Mid:number) => {
+        tasks1 = tasks1.filter(f=>f.id!==Mid);
+        setTasks1(tasks1)
+        console.log(tasks1);
+    }
+
     return (
-        <div>
-            <Accordion collapsed={true} title={'hello world'} />
-            <Accordion collapsed={false} title={'hello world'} />
+        <div className="App">
+            <Todolist
+                title="What to learn"
+                tasks={tasks1}
+                removeTasks={removeTasks}
+            />
         </div>
     );
 }
 
-// const task1=[
-//     {id:1,title:'HTML&CSS',isDone:true},
-//     {id:'1' ,title:'HTML&CSS2',isDone:false},
-//     {id:1,title:'HTML&CSS3',isDone:true},
-// ];
-// const task2=[
-//     {id:1,title:'HTML&CSS',isDone:true},
-//     {id:'1' ,title:'HTML&CSS2',isDone:false},
-//     {id:1,title:'HTML&CSS3',isDone:true},
-// ]
-//
+export default App;
+
+
+
+// import { MyTitle as Mt } from './components/MyTitle/MyTitle';
+// import { Rating, Star } from './components/Star/Rating';
+// import Accordion from './components/Accordion';
+
 // return (
 //     <div>
-//         <Todolist title={'What to learn'} tasks={task1}/>
-//         <Todolist title={'What to university'} tasks={task1}/>
+//         <Accordion collapsed={true} title={'hello world'} />
+//         <Accordion collapsed={false} title={'hello world'} />
 //     </div>
 // );
 
-export default App;
+
